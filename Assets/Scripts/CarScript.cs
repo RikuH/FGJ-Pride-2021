@@ -29,6 +29,8 @@ public class CarScript : MonoBehaviour
     private float inputX, inputY;
     Rigidbody rb;
 
+    [SerializeField] GameObject ThirdPersonCamera;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,9 @@ public class CarScript : MonoBehaviour
         if (!isRiding)
             return;
 
+        ThirdPersonCamera.SetActive(true);
+
+        AnimateWheels();
         GetInputs();
     }
     private void LateUpdate()
@@ -49,6 +54,7 @@ public class CarScript : MonoBehaviour
             return;
 
         Move();
+        Turn();
     }
     void GetInputs()
     {
@@ -60,6 +66,28 @@ public class CarScript : MonoBehaviour
         foreach(var wheel in Wheels)
         {
             wheel.collider.motorTorque = inputY * maxAcceleration * 500 * Time.deltaTime;
+        }
+    }
+    void Turn()
+    {
+        foreach(var wheel in Wheels)
+        {
+            if(wheel.axel == Axel.Front)
+            {
+                var _steerAngle = inputX * turnSensitivity * maxSteerAngle;
+                wheel.collider.steerAngle = Mathf.Lerp(wheel.collider.steerAngle,_steerAngle,0.5f);
+            }
+        }
+    }
+    void AnimateWheels()
+    {
+        foreach(var wheel in Wheels)
+        {
+            Quaternion rot;
+            Vector3 pos;
+            wheel.collider.GetWorldPose(out pos, out rot);
+            wheel.Model.transform.rotation = rot;
+            wheel.Model.transform.position = pos;
         }
     }
 }

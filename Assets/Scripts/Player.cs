@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     //Get in the car variables :D
     [SerializeField] GameObject DriverDoor;
+    [SerializeField] GameObject DriverSeat;
     [SerializeField] GameObject Car;
     [SerializeField] float AbleToGetInCarDistance;
     bool isGoingToDrive = false;
@@ -17,6 +18,8 @@ public class Player : MonoBehaviour
     public float turnSmoothTime = 0f;
     public Transform cam;
     float turnSmoothVelocity;
+
+    [SerializeField] GameObject ThirdPersonCamera;
 
     NavMeshAgent agent;
 
@@ -29,6 +32,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Car.GetComponent<CarScript>().isRiding)
+            return;
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0, vertical);
@@ -55,8 +61,7 @@ public class Player : MonoBehaviour
             {
                 if(agent.remainingDistance < 0.1f)
                 {
-                    Debug.Log("Nyt ajaa");
-                    Car.GetComponent<CarScript>().isRiding = true;
+                    Driving();
                 }
             }
         }
@@ -65,5 +70,20 @@ public class Player : MonoBehaviour
             isGoingToDrive = false;
             agent.ResetPath();
         }
+    }
+
+    void Driving()
+    {
+        Debug.Log("Nyt ajaa");
+        gameObject.transform.parent = Car.transform;
+        gameObject.GetComponent<Collider>().enabled = false;
+        gameObject.GetComponentInChildren<Renderer>().enabled = false;
+        gameObject.transform.position = DriverSeat.transform.position;
+        isGoingToDrive = false;
+        agent.ResetPath();
+
+        ThirdPersonCamera.SetActive(false);
+
+        Car.GetComponent<CarScript>().isRiding = true;
     }
 }
