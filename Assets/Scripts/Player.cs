@@ -77,7 +77,8 @@ public class Player : MonoBehaviour
         Debug.Log("Nyt ajaa");
         gameObject.transform.parent = Car.transform;
         gameObject.GetComponent<Collider>().enabled = false;
-        gameObject.GetComponentInChildren<Renderer>().enabled = false;
+        //gameObject.GetComponentInChildren<Renderer>().enabled = false;
+        gameObject.transform.localScale = new Vector3(0, 0, 0);
         gameObject.transform.position = DriverSeat.transform.position;
         isGoingToDrive = false;
         agent.ResetPath();
