@@ -30,28 +30,36 @@ public class CarScript : MonoBehaviour
     Rigidbody rb;
 
     [SerializeField] GameObject ThirdPersonCamera;
+    [SerializeField] GameObject Player;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!isRiding)
+        {
             return;
+        }
 
         ThirdPersonCamera.SetActive(true);
 
         AnimateWheels();
         GetInputs();
+
+        GetAwayFromCar();
     }
     private void LateUpdate()
     {
         if (!isRiding)
+        {
             return;
+        }
 
         Move();
         Turn();
@@ -90,4 +98,15 @@ public class CarScript : MonoBehaviour
             wheel.Model.transform.position = pos;
         }
     }
+
+    void GetAwayFromCar()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isRiding = false;
+            ThirdPersonCamera.SetActive(false);
+            Player.GetComponent<Player>().TurnWalkModeOn();
+        }
+    }
+
 }

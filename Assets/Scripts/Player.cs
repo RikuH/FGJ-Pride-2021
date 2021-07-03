@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject Car;
     [SerializeField] float AbleToGetInCarDistance;
     bool isGoingToDrive = false;
+    bool isAbleToDriveAgain = true;
 
     //Free moving variables
     public CharacterController controller;
@@ -42,17 +43,18 @@ public class Player : MonoBehaviour
         if (Car.GetComponent<CarScript>().isRiding)
             return;
 
-        Move();
         DrivingMode();
+        Move();
         Animations();
+
     }
+
 
     void Driving()
     {
-        Debug.Log("Nyt ajaa");
         gameObject.transform.parent = Car.transform;
-        gameObject.GetComponent<Collider>().enabled = false;
-        //gameObject.GetComponentInChildren<Renderer>().enabled = false;
+        //gameObject.GetComponent<Collider>().enabled = false;
+        controller.enabled = false;
         gameObject.transform.localScale = new Vector3(0, 0, 0);
         gameObject.transform.position = DriverSeat.transform.position;
         isGoingToDrive = false;
@@ -68,13 +70,10 @@ public class Player : MonoBehaviour
         currentPos = transform.position;
         if(currentPos != lastPos)
         {
-            Debug.Log("Liikkuu");
             anim.SetBool("isRunning", true);
         }
         else
         {
-
-            Debug.Log("Stop");
             anim.SetBool("isRunning", false);
         }
         lastPos = currentPos;
@@ -101,10 +100,14 @@ public class Player : MonoBehaviour
         float distance = Vector3.Distance(gameObject.transform.position, DriverDoor.transform.position);
         if (distance < AbleToGetInCarDistance)
         {
+            if (!isAbleToDriveAgain)
+                return;
+
             if (Input.GetKeyDown(KeyCode.F))
             {
                 agent.SetDestination(DriverDoor.transform.position);
                 isGoingToDrive = true;
+                Debug.Log(agent.remainingDistance);
             }
             if (isGoingToDrive)
             {
@@ -119,5 +122,25 @@ public class Player : MonoBehaviour
             isGoingToDrive = false;
             agent.ResetPath();
         }
+    }
+
+    public void TurnWalkModeOn()
+    {
+        gameObject.transform.position = DriverDoor.transform.position;
+        gameObject.transform.parent = null;
+        //gameObject.GetComponent<Collider>().enabled = true;
+        gameObject.transform.localScale = new Vector3(1,1,1);
+        isGoingToDrive = false;
+        isAbleToDriveAgain = false;
+        ThirdPersonCamera.SetActive(true);
+        controller.enabled = true;
+
+        StartCoroutine(WaitALittle());
+    }
+
+    IEnumerator WaitALittle()
+    {
+        yield return new WaitForEndOfFrame();
+        isAbleToDriveAgain = true;
     }
 }
