@@ -23,10 +23,13 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject ThirdPersonCamera;
 
     NavMeshAgent agent;
-    Animator anim;
+    public Animator anim;
 
     Vector3 currentPos;
     Vector3 lastPos;
+
+    float gravity = -9.81f;
+    Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +37,9 @@ public class Player : MonoBehaviour
         currentPos = transform.position;
         lastPos = transform.position;
         agent = GetComponent<NavMeshAgent>();
-        anim = GetComponentInChildren<Animator>();
+
+        StartCoroutine(WaitALittle());
+        //anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -46,6 +51,14 @@ public class Player : MonoBehaviour
         DrivingMode();
         Move();
         Animations();
+
+        if (!isGoingToDrive)
+        {
+
+            //Physics :D
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+        }
 
     }
 
@@ -67,6 +80,9 @@ public class Player : MonoBehaviour
 
     void Animations()
     {
+        if (anim == null)
+            return;
+
         currentPos = transform.position;
         if(currentPos != lastPos)
         {
@@ -107,7 +123,6 @@ public class Player : MonoBehaviour
             {
                 agent.SetDestination(DriverDoor.transform.position);
                 isGoingToDrive = true;
-                Debug.Log(agent.remainingDistance);
             }
             if (isGoingToDrive)
             {
@@ -140,7 +155,9 @@ public class Player : MonoBehaviour
 
     IEnumerator WaitALittle()
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();     
         isAbleToDriveAgain = true;
+
+        anim = GetComponentInChildren<Animator>(); //:D
     }
 }

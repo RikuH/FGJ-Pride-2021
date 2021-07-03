@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3586681022901493399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3586681022901493398}
+  m_Layer: 0
+  m_Name: ReadyPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3586681022901493398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3586681022901493399}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.0899997, y: -0.137, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7486407569028666960}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6206914008273167259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6206914008273167258}
+  m_Layer: 0
+  m_Name: SpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6206914008273167258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6206914008273167259}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.689, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7486407569028666960}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1 &7486407567339557317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7486407567339557318}
+  m_Layer: 0
+  m_Name: HumanPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7486407567339557318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7486407567339557317}
+  m_LocalRotation: {x: -0, y: -0.9340031, z: -0, w: 0.35726503}
+  m_LocalPosition: {x: -3.21, y: -0.65, z: -0.72}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7486407569028666960}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -138.13501, z: 0}
+--- !u!1 &7486407569028666966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7486407569028666960}
+  - component: {fileID: 7486407569028666965}
+  m_Layer: 0
+  m_Name: RaftEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7486407569028666960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7486407569028666966}
+  m_LocalRotation: {x: 0, y: 0.08381695, z: 0, w: 0.9964812}
+  m_LocalPosition: {x: 36.64, y: 0.631, z: -8.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7486407567339557318}
+  - {fileID: 6206914008273167258}
+  - {fileID: 3586681022901493398}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 9.616, z: 0}
+--- !u!114 &7486407569028666965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7486407569028666966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4c642bdb7cbdc54db9d6694dc477f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHelped: 0
+  distanceToInteract: 5
+  Player: {fileID: 0}
+  Cars:
+  - {fileID: 3622560709240904712, guid: 87ccbe2cf8b6fa949911def3ce7964c0, type: 3}
+  Humans:
+  - {fileID: 4741423602636137724, guid: 56e71388a9c88e849a0ac0659f3332c0, type: 3}
+  - {fileID: 7633814343906859785, guid: e91e52b36a9cbae4089fdcd2e85384d4, type: 3}
+  - {fileID: 7065999496879088334, guid: 68ed4985e4aa54240ae0097d7b173fca, type: 3}
+  - {fileID: 6029478674643132921, guid: f80b0ed751b40be4c89b0083e1a43392, type: 3}
+  - {fileID: 6540680531505975412, guid: c5f0484f2bb02c94eaa2fcf4c3d8d5b2, type: 3}
+  - {fileID: 42147082970392348, guid: 2845af055e7b7cc4c9b6951fba44f3cb, type: 3}
+  Car: {fileID: 0}
+  Human: {fileID: 0}
+  SpawnPos: {fileID: 6206914008273167258}
+  HumanPos: {fileID: 7486407567339557318}
+  BlackPanel: {fileID: 0}
+  ReadyPosition: {fileID: 3586681022901493398}

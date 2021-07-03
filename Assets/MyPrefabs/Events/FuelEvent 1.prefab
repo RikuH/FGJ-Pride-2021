@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2480083226991149497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2480083226991149502}
+  m_Layer: 0
+  m_Name: ReadyPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2480083226991149502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2480083226991149497}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2480083228574246417}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2480083228569391222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2480083228569391223}
+  m_Layer: 0
+  m_Name: HumanPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2480083228569391223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2480083228569391222}
+  m_LocalRotation: {x: -0, y: -0.9340031, z: -0, w: 0.35726503}
+  m_LocalPosition: {x: 1.96, y: -0.65, z: -3.28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2480083228574246417}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -138.13501, z: 0}
+--- !u!1 &2480083228574246416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2480083228574246417}
+  - component: {fileID: 2480083228574246422}
+  m_Layer: 0
+  m_Name: FuelEvent 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2480083228574246417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2480083228574246416}
+  m_LocalRotation: {x: -0, y: 0.08381735, z: -0, w: 0.9964811}
+  m_LocalPosition: {x: 2.42, y: 0.631, z: 10.24}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2480083228569391223}
+  - {fileID: 2480083226991149502}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 9.616, z: 0}
+--- !u!114 &2480083228574246422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2480083228574246416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af3e669408dcec24987787f9d729f053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHelped: 0
+  distanceToInteract: 5
+  Player: {fileID: 0}
+  Cars:
+  - {fileID: 349078083557672319, guid: 0dc52a0d268c1b54d86c5d223ae9244a, type: 3}
+  - {fileID: 3810792028606469995, guid: 1a38622cf7d45a64eb285b54c845f696, type: 3}
+  - {fileID: 3739514118486291054, guid: 972f9763bf6cb7040946d36c7413fddf, type: 3}
+  - {fileID: 2475467974935376553, guid: 3b844ffb7acbb8445b2263a16bb4651d, type: 3}
+  - {fileID: 5805614146683237178, guid: b60196cddbb46be47b11b6b364714196, type: 3}
+  Humans:
+  - {fileID: 7633814343906859785, guid: e91e52b36a9cbae4089fdcd2e85384d4, type: 3}
+  - {fileID: 6540680531505975412, guid: c5f0484f2bb02c94eaa2fcf4c3d8d5b2, type: 3}
+  - {fileID: 4741423602636137724, guid: 56e71388a9c88e849a0ac0659f3332c0, type: 3}
+  - {fileID: 6029478674643132921, guid: f80b0ed751b40be4c89b0083e1a43392, type: 3}
+  - {fileID: 42147082970392348, guid: 2845af055e7b7cc4c9b6951fba44f3cb, type: 3}
+  - {fileID: 7065999496879088334, guid: 68ed4985e4aa54240ae0097d7b173fca, type: 3}
+  Car: {fileID: 0}
+  Human: {fileID: 0}
+  SpawnPos: {fileID: 2480083226991149502}
+  HumanPos: {fileID: 2480083228569391223}
+  BlackPanel: {fileID: 0}
+  Sign: {fileID: 0}
+  GasStations: []
