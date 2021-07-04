@@ -12,12 +12,17 @@ public class RaftEvent : CarMission
         RandomizeHuman();
         InitEvent();
     }
+    private void Start()
+    {
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (canHelp())
         {
+
+            gameManager.GetComponent<GameManager>().helpedPeople++;
             StartCoroutine(SmoothDelay());
             isHelped = true;
         }
@@ -34,7 +39,7 @@ public class RaftEvent : CarMission
         Human.transform.position =new Vector3 (Car.transform.position.x, Car.transform.position.y + 0.5f, Car.transform.position.z);
         Human.transform.SetParent(Car.transform);
 
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(0.8f);
         BlackPanel.SetActive(false);
     }
 }

@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] GameObject ThirdPersonCamera;
 
+    [SerializeField] GameObject CarPanel;
+
     NavMeshAgent agent;
     public Animator anim;
 
@@ -129,14 +131,20 @@ public class Player : MonoBehaviour
             {
                 if (agent.remainingDistance < 0.1f)
                 {
+                    CarPanel.SetActive(false);
                     Driving();
                 }
+            }
+            else
+            {
+                CarPanel.SetActive(true);
             }
         }
         else
         {
             isGoingToDrive = false;
             agent.ResetPath();
+            CarPanel.SetActive(false);
         }
     }
 

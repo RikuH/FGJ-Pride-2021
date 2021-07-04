@@ -28,12 +28,15 @@ public class FuelEvent : CarMission
         {
             if (hasFuel)
             {
+                gameManager.GetComponent<GameManager>().helpedPeople++;
                 Debug.Log("Bensa Tuotu");
                 isHelped = true;
             }
             else
             {
                 isGettingFuel = true;
+                fuelWaiter = true;
+                DialogyText.text = "Thank you. I wait here.";
                 Debug.Log("Hae Bensaa");
             }
 
@@ -48,16 +51,19 @@ public class FuelEvent : CarMission
     }
     void GetFuel()
     {
-        for(int i = 0; i < GasStations.Length; i++)
+        Debug.Log("Haen bensaa" + GasStations.Length);
+
+        for (int i = 0; i < GasStations.Length; i++)
         {
             float distance = Vector3.Distance(Player.transform.position, GasStations[i].transform.position);
-            //Debug.Log("Distance between gastations: " + distance);
+            Debug.Log("Distance between gastations: " + distance);
 
             if(distance < 5)
             {
                 hasFuel = true;
                 isGettingFuel = false;
                 Debug.Log("Bensaa saatu");
+                DialogyText.text = "You have some fuel.\nBring it to one who ask for it.";
             }
         }
     }

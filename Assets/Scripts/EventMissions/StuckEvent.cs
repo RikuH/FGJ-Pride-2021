@@ -13,11 +13,17 @@ public class StuckEvent : CarMission
         InitEvent();
     }
 
+    private void Start()
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (canHelp())
         {
+            gameManager.GetComponent<GameManager>().helpedPeople++;
             StartCoroutine(SmoothDelay());
             isHelped = true;
         }
@@ -31,7 +37,7 @@ public class StuckEvent : CarMission
         Car.transform.position = ReadyPosition.position;
         Car.transform.rotation = ReadyPosition.rotation;
 
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(0.8f);
         BlackPanel.SetActive(false);
     }
 }

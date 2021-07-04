@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] PlayerCharacters;
 
     public int helpedPeople = 0;
-    int oldHelped = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +18,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (helpedPeople > oldHelped)
-        {
-            Debug.Log("Autettu: " + helpedPeople);
-        }
-        oldHelped = helpedPeople;
+
+        Debug.Log("Autettu: " + helpedPeople);
+
     }
 }

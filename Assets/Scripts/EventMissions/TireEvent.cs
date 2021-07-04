@@ -32,6 +32,7 @@ public class TireEvent : CarMission
     {
         if (canHelp())
         {
+            gameManager.GetComponent<GameManager>().helpedPeople++;
             StartCoroutine(SmoothDelay());
             isHelped = true;
         }
@@ -48,7 +49,7 @@ public class TireEvent : CarMission
         wheelMesh.SetActive(true);
         wheelCol.SetActive(true);
 
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(0.8f);
         BlackPanel.SetActive(false);
     }
 }

@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CarMission : MonoBehaviour
 {
     public bool isHelped = false;
+    public bool fuelWaiter = false;
 
     public float distanceToInteract = 5.0f;
     public GameObject Player;
@@ -21,8 +23,10 @@ public class CarMission : MonoBehaviour
     Animator anim;
 
     public GameObject BlackPanel;
+    public GameObject gameManager;
 
-    GameObject gameManager;
+    public Text DialogyText;
+    [SerializeField] GameObject DialogyPanel;
 
     public void InitEvent()
     {
@@ -45,20 +49,59 @@ public class CarMission : MonoBehaviour
 
     public bool canHelp()
     {
+        float distance = Vector3.Distance(Human.transform.position, Player.transform.position);
         if (isHelped)
         {
-            anim.SetBool("isHelped", isHelped);
-            gameManager.GetComponent<GameManager>().helpedPeople++;
+            if (distance < distanceToInteract)
+            {
+                DialogyText.text = "Thank you very much!\nYou are the best!";
+                DialogyPanel.SetActive(true);
+                anim.SetBool("isHelped", isHelped);
+            }
+            else
+            {
+                DialogyPanel.SetActive(false);
+
+            }
             return false;
         }
 
-        float distance = Vector3.Distance(Human.transform.position, Player.transform.position);
         if (distance < distanceToInteract)
         {
+            if (gameObject.tag == "StuckEvent")
+            {
+                DialogyPanel.SetActive(true);
+                DialogyText.text = "Hey!\nCould help me my car is stuck?\n\nPress (H) to help";
+            }
+            else if(gameObject.tag == "TireEvent")
+            {
+
+                DialogyPanel.SetActive(true);
+                DialogyText.text = "Hey!\nCould help me with my spare wheel?\n\nPress (H) to help";
+            }
+            else if (gameObject.tag == "RaftEvent")
+            {
+
+                DialogyPanel.SetActive(true);
+                DialogyText.text = "Hey!\nCould help me push my raft to the sea?\n\nPress (H) to help";
+            }
+            else if (gameObject.tag == "FuelEvent")
+            {
+
+                DialogyPanel.SetActive(true);
+                if(!fuelWaiter)
+                    DialogyText.text = "Hey!\nCould bring me some fuel?\n\nPress (H) to help";
+            }
             if (Input.GetKeyDown(KeyCode.H))
             {
+                Debug.Log("Yritettäään auttaa?");
                 return true;
             }
+        }
+        else
+        {
+           DialogyPanel.SetActive(false);
+
         }
         return false;
 
@@ -67,6 +110,6 @@ public class CarMission : MonoBehaviour
     {
         // Draw a semitransparent blue cube at the transforms position
         Gizmos.color = new Color(0, 1, 0, 0.5f);
-        Gizmos.DrawCube(transform.position, new Vector3(5,2,5));
+        Gizmos.DrawCube(transform.position, new Vector3(5, 2, 5));
     }
 }
