@@ -22,11 +22,12 @@ public class CarMission : MonoBehaviour
 
     public GameObject BlackPanel;
 
+    GameObject gameManager;
 
     public void InitEvent()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-
+        gameManager = GameObject.Find("GameManager").gameObject;
     }
 
     public void RandomizeCars()
@@ -47,8 +48,7 @@ public class CarMission : MonoBehaviour
         if (isHelped)
         {
             anim.SetBool("isHelped", isHelped);
-
-
+            gameManager.GetComponent<GameManager>().helpedPeople++;
             return false;
         }
 

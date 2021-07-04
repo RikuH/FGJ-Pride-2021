@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3624926898938467342}
+  - component: {fileID: 1945617783}
   m_Layer: 0
   m_Name: EA04_Wehicule_Raft_01a_PRE
   m_TagString: Untagged
@@ -23,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3622560709240904712}
-  m_LocalRotation: {x: 0.0063945698, y: -0.73890954, z: 0.020115385, w: 0.673474}
+  m_LocalRotation: {x: 0.0063913446, y: -0.7389107, z: 0.020115182, w: 0.67347276}
   m_LocalPosition: {x: 1.7077338, y: -0.84, z: 0.28764552}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -31,6 +32,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 2.197, y: -95.286, z: 1.0120001}
+--- !u!65 &1945617783
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622560709240904712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7978256, y: 0.41379982, z: 3.7321}
+  m_Center: {x: -0.13542287, y: 0.23780145, z: -0.29618576}
 --- !u!1 &3622832162384273442
 GameObject:
   m_ObjectHideFlags: 0
