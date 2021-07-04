@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6b84d01ca76a5b04fae9200e193f29e0
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: a Agreement Signature
+  fontNames:
+  - a Agreement Signature
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: dd432cbd439c2b24493ae135e8e95779, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
