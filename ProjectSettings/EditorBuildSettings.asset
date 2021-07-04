@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/CharacterSelection.unity
     guid: 3700e6fd44cda7947943d4f73e27b659
   - enabled: 1
-    path: Assets/Scenes/RikunScene.unity
-    guid: 5e65c7702502857448ce729c235950a9
-  - enabled: 1
-    path: Assets/Scenes/EventMakingScene.unity
-    guid: 8a278bdc1d7f7af46a9035676c15640a
+    path: Assets/Scenes/LandTestScene.unity
+    guid: 46f7a7a661a15ff48b488d4e9b1cc94f
   m_configObjects: {}

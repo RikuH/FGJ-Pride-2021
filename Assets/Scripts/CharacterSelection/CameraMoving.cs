@@ -57,7 +57,7 @@ public class CameraMoving : MonoBehaviour
         {
             GameObject.Find("LoadThings").GetComponent<LoadThings>().selectedIndex = index;
             DontDestroyOnLoad(GameObject.Find("LoadThings").gameObject);
-            UnityEngine.SceneManagement.SceneManager.LoadScene("EventMakingScene");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("LandTestScene");
         }
     }
 

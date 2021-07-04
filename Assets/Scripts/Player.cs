@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     //Free moving variables
     public CharacterController controller;
-    public float speed = 6f;
+    public float speed = 3f;
     public float turnSmoothTime = 0f;
     public Transform cam;
     float turnSmoothVelocity;
@@ -48,9 +48,6 @@ public class Player : MonoBehaviour
         if (Car.GetComponent<CarScript>().isRiding)
             return;
 
-        DrivingMode();
-        Move();
-        Animations();
 
         if (!isGoingToDrive)
         {
@@ -59,6 +56,10 @@ public class Player : MonoBehaviour
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
         }
+
+        DrivingMode();
+        Move();
+        Animations();
 
     }
 
