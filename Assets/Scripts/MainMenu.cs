@@ -33,13 +33,13 @@ public class MainMenu : MonoBehaviour
 
     void StartGame()
     {
-        //SceneManager.LoadScene(1);
-        Debug.Log("Avaa pelin");
+        SceneManager.LoadScene(0);
+        //Debug.Log("Avaa pelin");
     }
 
     void QuitGame()
     {
-        Debug.Log("Lopettaa pelin");
+        //Debug.Log("Lopettaa pelin");
         Application.Quit();
     }
 
@@ -64,6 +64,7 @@ public class MainMenu : MonoBehaviour
 
     void BackManualToMain()
     {
+        Debug.Log("is clicked");
         ManualPanel.SetActive(false);
         MainPanel.SetActive(true);
     }
